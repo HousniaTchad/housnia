@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#E8457A">
+<title>Housnia</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<style>
+:root{--pink:#E8457A;--powder:#FAD4E0;--plum:#5B1E44;--sand:#F4E3C1;--sand2:#FBF4E6;--coral:#F28C6B;--teal:#4FB5A5;--red:#C62828;--ink:#2B2B2B;--muted:#6B5A63;--white:#fff}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;height:100%}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans","Noto Naskh Arabic",Arial,sans-serif;background:var(--sand2);color:var(--ink);font-size:17px;line-height:1.45}
+#app{max-width:520px;margin:0 auto;min-height:100%;display:flex;flex-direction:column;background:var(--sand2)}
+header{display:flex;align-items:center;gap:10px;padding:14px 16px;background:var(--white);border-bottom:1px solid #EFDCE4;position:sticky;top:0;z-index:5}
+header img{width:36px;height:36px;border-radius:9px}
+header h1{font-size:20px;margin:0;color:var(--plum);flex:1}
+.iconbtn{border:0;background:var(--powder);color:var(--plum);border-radius:999px;padding:8px 12px;font-size:14px;font-weight:600}
+main{flex:1;padding:16px 16px 110px}
+h2{color:var(--plum);font-size:22px;margin:4px 0 12px}
+h3{color:var(--plum);font-size:18px;margin:0 0 6px}
+p{margin:0 0 10px}
+.card{background:var(--white);border-radius:18px;padding:16px;margin-bottom:14px;box-shadow:0 1px 3px rgba(91,30,68,.08)}
+.muted{color:var(--muted);font-size:15px}
+.btn{display:block;width:100%;border:0;border-radius:14px;padding:14px 16px;font-size:18px;font-weight:700;color:#fff;background:var(--pink);margin:8px 0;text-align:center}
+.btn.plum{background:var(--plum)}.btn.teal{background:var(--teal)}.btn.coral{background:var(--coral)}.btn.light{background:var(--powder);color:var(--plum)}
+.big{font-size:40px;font-weight:800;color:var(--pink);line-height:1.1}
+.row{display:flex;gap:10px;align-items:center}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tile{border:0;border-radius:18px;padding:18px 12px;color:#fff;font-size:17px;font-weight:700;text-align:center;min-height:110px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
+.tile svg{width:34px;height:34px}
+.listen{display:inline-flex;align-items:center;gap:8px;border:0;background:var(--plum);color:#fff;border-radius:999px;padding:10px 16px;font-size:16px;font-weight:700;margin:6px 0 4px}
+.listen svg{width:20px;height:20px}
+.alert{background:#FDECEC;border:2px solid var(--red);border-radius:14px;padding:12px;color:#7a1414;font-weight:600}
+.keep{background:var(--powder);border-radius:14px;padding:12px;color:var(--plum)}
+input[type=date],select{width:100%;font-size:18px;padding:12px;border-radius:12px;border:1px solid #D9C2CE;background:#fff;color:var(--ink)}
+label{display:block;font-weight:700;color:var(--plum);margin:6px 0}
+nav{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:center;background:var(--white);border-top:1px solid #EFDCE4;padding-bottom:env(safe-area-inset-bottom);z-index:6}
+nav .in{display:flex;max-width:520px;width:100%}
+nav button{flex:1;border:0;background:none;padding:8px 2px 10px;font-size:12px;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:3px}
+nav button svg{width:24px;height:24px}
+nav button.on{color:var(--pink);font-weight:700}
+.sos{position:fixed;right:max(16px,calc(50% - 244px));bottom:84px;border:0;background:var(--red);color:#fff;border-radius:999px;padding:14px 18px;font-weight:800;font-size:16px;box-shadow:0 4px 14px rgba(198,40,40,.35);display:flex;align-items:center;gap:8px;z-index:7}
+.sos svg{width:22px;height:22px}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:10px}
+.cal div{aspect-ratio:1;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:14px;background:#F6EEF2;color:var(--ink)}
+.cal .p{background:var(--pink);color:#fff;font-weight:700}.cal .f{background:#CDEDE7;color:#1d5e55;font-weight:700}.cal .t{outline:3px solid var(--plum)}.cal .h{background:none;color:var(--muted);font-weight:700}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:14px;margin-top:10px}.legend span{display:inline-flex;align-items:center;gap:6px}.legend i{width:14px;height:14px;border-radius:4px;display:inline-block}
+ul.danger{padding:0;margin:0;list-style:none}ul.danger li{display:flex;gap:12px;align-items:center;background:#fff;border-radius:14px;padding:12px;margin-bottom:10px;font-weight:600}
+ul.danger li b{flex:0 0 40px;height:40px;border-radius:50%;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px}
+.lang{display:grid;gap:10px}
+.offline{font-size:13px;color:#1d5e55;background:#E3F4F1;border-radius:999px;padding:4px 10px;display:inline-block;margin-bottom:12px}
+.quiz button{display:block;width:100%;text-align:start;border:2px solid #E6D5DD;background:#fff;border-radius:12px;padding:12px;margin:8px 0;font-size:16px}
+.quiz button.ok{border-color:var(--teal);background:#E3F4F1}.quiz button.ko{border-color:var(--red);background:#FDECEC}
+[dir=rtl] .sos{right:auto;left:max(16px,calc(50% - 244px))}
+.hide{display:none}
+</style>
+</head>
+<body>
+<div id="app">
+  <header>
+    <img src="icon-192.png" alt="">
+    <h1>Housnia</h1>
+    <button class="iconbtn" id="langBtn" aria-label="Langue">FR</button>
+  </header>
+  <main id="view" aria-live="polite"></main>
+</div>
+<button class="sos hide" id="sos"></button>
+<nav class="hide" id="nav"><div class="in" id="navIn"></div></nav>
+
+<script>
+"use strict";
+// ---------- Icons ----------
+const I = {
+  home:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>',
+  cal:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>',
+  preg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.5" r="2.5"/><path d="M10 8h3a5 5 0 0 1 0 10h-1l-1 4M10 8l-1 6 2 4"/></svg>',
+  baby:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="9" r="5"/><path d="M10 9h.01M14 9h.01M10.5 11.5c1 .7 2 .7 3 0M7 18c1.5 2 8.5 2 10 0"/></svg>',
+  book:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 5c3-1 6-1 9 1 3-2 6-2 9-1v14c-3-1-6-1-9 1-3-2-6-2-9-1z"/><path d="M12 6v14"/></svg>',
+  sos:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18h.01"/></svg>',
+  spk:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg>'
+};
+
+// ---------- Texts (FR / AR / EN) ----------
+const T = {
+fr:{dir:"ltr",name:"Français",
+ offline:"Fonctionne sans internet",welcome:"Bienvenue sur Housnia",tagline:"Ma santé, mon savoir.",
+ chooseLang:"Choisis ta langue",who:"Qui es-tu ?",
+ p_girl:"Je suis une jeune fille",p_period:"J'ai mes règles",p_preg:"Je suis enceinte",p_baby:"J'ai accouché récemment",
+ n_home:"Accueil",n_period:"Mes règles",n_preg:"Ma grossesse",n_baby:"Après bébé",n_learn:"Apprendre",sos:"Urgence",
+ listen:"Écouter",stop:"Arrêter",change:"Changer de profil",
+ msgDay:"Conseil du jour",msgDayTxt:"Les règles sont normales et saines. Ce n'est ni une maladie ni une honte.",
+ lastPeriod:"Premier jour de tes dernières règles",cycleLen:"Durée habituelle du cycle (jours)",save:"Enregistrer",
+ nextPeriod:"Prochaines règles prévues",inDays:d=>`dans ${d} jour${d>1?"s":""}`,today:"aujourd'hui",ago:d=>`il y a ${d} jour${d>1?"s":""} (retard possible)`,
+ legP:"Règles",legF:"Période fertile",legT:"Aujourd'hui",noData:"Entre la date de tes dernières règles pour voir ton calendrier.",
+ lmp:"Premier jour des dernières règles avant la grossesse",week:"Semaine",of40:"sur 40",due:"Date prévue d'accouchement",
+ nextVisit:"Consultations prénatales",visitTxt:"L'OMS recommande au moins 8 contacts avec un agent de santé pendant la grossesse. Va au centre de santé dès que tu sais que tu es enceinte.",
+ tri:["1er trimestre : fatigue et nausées sont fréquentes. Commence le fer et l'acide folique.","2e trimestre : tu sens bientôt le bébé bouger. Dors sous une moustiquaire.","3e trimestre : prépare ton sac et ton transport pour accoucher au centre de santé."],
+ birth:"Date de l'accouchement",dayAfter:d=>`Jour ${d} après l'accouchement`,
+ babyTips:["Allaite ton bébé uniquement au sein pendant 6 mois.","Garde le cordon propre et sec.","Fais vacciner ton bébé dès la naissance.","Consulte le centre de santé dans les 6 semaines après l'accouchement.","Si tu te sens très triste ou épuisée, parles-en à une sage-femme."],
+ learnIntro:"Fiches courtes. Appuie sur « Écouter » pour entendre.",keep:"À retenir",goHC:"Va au centre de santé si…",
+ quizT:"Petit quiz",quizQ:"Pendant la grossesse, un saignement par le vagin est…",quizA:["Normal, il faut attendre","Un signe de danger : aller vite au centre de santé","Dû à la fatigue"],quizOk:"Bravo ! Un saignement est toujours un signe de danger.",quizKo:"Pas tout à fait. Un saignement pendant la grossesse est un signe de danger.",
+ sosTitle:"Signes de danger",sosIntro:"Si tu as un de ces signes, va TOUT DE SUITE au centre de santé le plus proche.",
+ dangers:["Saignement par le vagin","Convulsions ou évanouissement","Maux de tête très forts ou vue trouble","Forte fièvre","Douleur très forte au ventre","Respiration difficile","Le bébé ne bouge plus ou moins","Perte d'eau avant le travail"],
+ dangersPost:"Après l'accouchement : saignement abondant, fièvre, pertes qui sentent mauvais, convulsions.",
+ call:"Appelle un proche ou un relais pour t'accompagner.",
+ privacy:"Tes informations restent sur ton téléphone.",reset:"Effacer mes données",resetOk:"Données effacées.",
+ noVoice:"Voix non disponible sur ce téléphone. Les audios enregistrés (y compris en arabe tchadien) seront ajoutés.",
+ proto:"Prototype – contenu à valider par le comité médical."
+},
+ar:{dir:"rtl",name:"العربية",
+ offline:"يعمل بدون إنترنت",welcome:"مرحبًا بكِ في حُسنية",tagline:"صحّتي، معرفتي.",
+ chooseLang:"اختاري لغتك",who:"من أنتِ؟",
+ p_girl:"أنا فتاة",p_period:"عندي الدورة الشهرية",p_preg:"أنا حامل",p_baby:"وضعتُ مولودي مؤخرًا",
+ n_home:"الرئيسية",n_period:"دورتي",n_preg:"حملي",n_baby:"بعد الولادة",n_learn:"تعلّمي",sos:"طوارئ",
+ listen:"استمعي",stop:"إيقاف",change:"تغيير الملف",
+ msgDay:"نصيحة اليوم",msgDayTxt:"الدورة الشهرية أمر طبيعي وصحّي، وليست مرضًا ولا عيبًا.",
+ lastPeriod:"أول يوم من آخر دورة",cycleLen:"مدة الدورة المعتادة (بالأيام)",save:"حفظ",
+ nextPeriod:"الدورة القادمة المتوقعة",inDays:d=>`بعد ${d} يوم`,today:"اليوم",ago:d=>`منذ ${d} يوم (تأخر محتمل)`,
+ legP:"الدورة",legF:"فترة الخصوبة",legT:"اليوم",noData:"أدخلي تاريخ آخر دورة لتري التقويم.",
+ lmp:"أول يوم من آخر دورة قبل الحمل",week:"الأسبوع",of40:"من 40",due:"موعد الولادة المتوقع",
+ nextVisit:"زيارات ما قبل الولادة",visitTxt:"توصي منظمة الصحة العالمية بثماني زيارات على الأقل أثناء الحمل. اذهبي إلى المركز الصحي فور معرفتك بالحمل.",
+ tri:["الثلث الأول: التعب والغثيان شائعان. ابدئي بالحديد وحمض الفوليك.","الثلث الثاني: ستشعرين قريبًا بحركة الجنين. نامي تحت ناموسية.","الثلث الثالث: جهّزي حقيبتك ووسيلة النقل للولادة في المركز الصحي."],
+ birth:"تاريخ الولادة",dayAfter:d=>`اليوم ${d} بعد الولادة`,
+ babyTips:["أرضعي طفلك رضاعة طبيعية فقط لمدة 6 أشهر.","حافظي على الحبل السري نظيفًا وجافًا.","طعّمي طفلك منذ الولادة.","راجعي المركز الصحي خلال 6 أسابيع بعد الولادة.","إذا شعرتِ بحزن شديد أو تعب كبير، تحدّثي مع القابلة."],
+ learnIntro:"بطاقات قصيرة. اضغطي على «استمعي» للسماع.",keep:"تذكّري",goHC:"اذهبي إلى المركز الصحي إذا…",
+ quizT:"اختبار قصير",quizQ:"أثناء الحمل، النزيف من المهبل هو…",quizA:["طبيعي، يجب الانتظار","علامة خطر: اذهبي بسرعة إلى المركز الصحي","بسبب التعب"],quizOk:"أحسنتِ! النزيف دائمًا علامة خطر.",quizKo:"ليس تمامًا. النزيف أثناء الحمل علامة خطر.",
+ sosTitle:"علامات الخطر",sosIntro:"إذا ظهرت عليكِ إحدى هذه العلامات، اذهبي فورًا إلى أقرب مركز صحي.",
+ dangers:["نزيف من المهبل","تشنجات أو إغماء","صداع شديد جدًا أو تشوّش في الرؤية","حمّى شديدة","ألم شديد في البطن","صعوبة في التنفس","الجنين لا يتحرك أو يتحرك أقل","نزول الماء قبل المخاض"],
+ dangersPost:"بعد الولادة: نزيف غزير، حمّى، إفرازات كريهة الرائحة، تشنجات.",
+ call:"اتصلي بقريب أو بمرشدة لترافقك.",
+ privacy:"معلوماتك تبقى على هاتفك.",reset:"مسح بياناتي",resetOk:"تم مسح البيانات.",
+ noVoice:"الصوت غير متوفر على هذا الهاتف. ستُضاف تسجيلات صوتية (ومنها بالعربية التشادية).",
+ proto:"نموذج أولي – المحتوى بانتظار مصادقة اللجنة الطبية."
+},
+en:{dir:"ltr",name:"English",
+ offline:"Works without internet",welcome:"Welcome to Housnia",tagline:"My health, my knowledge.",
+ chooseLang:"Choose your language",who:"Who are you?",
+ p_girl:"I am a girl",p_period:"I have my periods",p_preg:"I am pregnant",p_baby:"I recently gave birth",
+ n_home:"Home",n_period:"My periods",n_preg:"My pregnancy",n_baby:"After baby",n_learn:"Learn",sos:"Emergency",
+ listen:"Listen",stop:"Stop",change:"Change profile",
+ msgDay:"Tip of the day",msgDayTxt:"Periods are normal and healthy. They are not an illness and nothing to be ashamed of.",
+ lastPeriod:"First day of your last period",cycleLen:"Usual cycle length (days)",save:"Save",
+ nextPeriod:"Next period expected",inDays:d=>`in ${d} day${d>1?"s":""}`,today:"today",ago:d=>`${d} day${d>1?"s":""} ago (possibly late)`,
+ legP:"Period",legF:"Fertile window",legT:"Today",noData:"Enter the date of your last period to see your calendar.",
+ lmp:"First day of last period before pregnancy",week:"Week",of40:"of 40",due:"Expected due date",
+ nextVisit:"Antenatal visits",visitTxt:"WHO recommends at least 8 contacts with a health worker during pregnancy. Go to the health centre as soon as you know you are pregnant.",
+ tri:["1st trimester: tiredness and nausea are common. Start iron and folic acid.","2nd trimester: you will soon feel the baby move. Sleep under a mosquito net.","3rd trimester: prepare your bag and transport to give birth at the health centre."],
+ birth:"Date of birth",dayAfter:d=>`Day ${d} after birth`,
+ babyTips:["Breastfeed only for the first 6 months.","Keep the cord clean and dry.","Vaccinate your baby from birth.","Visit the health centre within 6 weeks after birth.","If you feel very sad or exhausted, talk to a midwife."],
+ learnIntro:"Short guides. Tap “Listen” to hear them.",keep:"Key point",goHC:"Go to the health centre if…",
+ quizT:"Quick quiz",quizQ:"During pregnancy, bleeding from the vagina is…",quizA:["Normal, just wait","A danger sign: go quickly to the health centre","Caused by tiredness"],quizOk:"Well done! Bleeding is always a danger sign.",quizKo:"Not quite. Bleeding during pregnancy is a danger sign.",
+ sosTitle:"Danger signs",sosIntro:"If you have one of these signs, go IMMEDIATELY to the nearest health centre.",
+ dangers:["Bleeding from the vagina","Convulsions or fainting","Very bad headache or blurred vision","High fever","Severe belly pain","Difficulty breathing","Baby moves less or not at all","Water breaks before labour"],
+ dangersPost:"After birth: heavy bleeding, fever, bad-smelling discharge, convulsions.",
+ call:"Call a relative or community health worker to go with you.",
+ privacy:"Your information stays on your phone.",reset:"Erase my data",resetOk:"Data erased.",
+ noVoice:"Voice not available on this phone. Recorded audio (including Chadian Arabic) will be added.",
+ proto:"Prototype – content to be validated by the medical committee."
+}};
+
+const GUIDES = {
+fr:[
+ {t:"Mes premières règles",b:"Les règles sont un saignement qui vient chaque mois, en général entre 10 et 16 ans. Elles durent 3 à 7 jours. C'est le signe que ton corps grandit normalement.",k:"Change ta serviette au moins 3 fois par jour et lave-toi avec de l'eau propre.",h:"les douleurs t'empêchent de marcher, ou si le saignement dure plus de 7 jours."},
+ {t:"Les consultations de grossesse",b:"Pendant la grossesse, la sage-femme vérifie ta santé et celle du bébé : tension, poids, sang, croissance du bébé. Elle te donne du fer, de l'acide folique et des vaccins.",k:"Va au centre de santé dès que tu sais que tu es enceinte, puis à chaque rendez-vous.",h:"tu as un signe de danger : saignement, fièvre, forte douleur ou maux de tête."},
+ {t:"Les 42 jours après bébé",b:"Après l'accouchement, ton corps a besoin de repos. Un saignement léger est normal pendant quelques semaines. Mange bien et bois beaucoup d'eau.",k:"Allaite ton bébé dès la première heure et uniquement au sein pendant 6 mois.",h:"tu saignes beaucoup, tu as de la fièvre ou des pertes qui sentent mauvais."}],
+ar:[
+ {t:"دورتي الأولى",b:"الدورة الشهرية نزيف يأتي كل شهر، غالبًا بين 10 و16 سنة، ويستمر من 3 إلى 7 أيام. وهي علامة على أن جسمك ينمو بشكل طبيعي.",k:"غيّري الفوطة 3 مرات على الأقل في اليوم واغتسلي بماء نظيف.",h:"كان الألم يمنعك من المشي، أو استمر النزيف أكثر من 7 أيام."},
+ {t:"زيارات الحمل",b:"أثناء الحمل، تفحص القابلة صحتك وصحة الجنين: الضغط والوزن والدم ونمو الجنين، وتعطيكِ الحديد وحمض الفوليك واللقاحات.",k:"اذهبي إلى المركز الصحي فور معرفتك بالحمل، ثم في كل موعد.",h:"ظهرت علامة خطر: نزيف أو حمّى أو ألم شديد أو صداع."},
+ {t:"الأيام الـ42 بعد الولادة",b:"بعد الولادة يحتاج جسمك إلى الراحة. النزيف الخفيف طبيعي لبضعة أسابيع. كُلي جيدًا واشربي الكثير من الماء.",k:"أرضعي طفلك في الساعة الأولى، ورضاعة طبيعية فقط لمدة 6 أشهر.",h:"نزفتِ كثيرًا، أو أصبتِ بالحمّى، أو كانت الإفرازات كريهة الرائحة."}],
+en:[
+ {t:"My first period",b:"A period is bleeding that comes every month, usually starting between ages 10 and 16. It lasts 3 to 7 days. It is a sign that your body is growing normally.",k:"Change your pad at least 3 times a day and wash with clean water.",h:"pain stops you from walking, or bleeding lasts more than 7 days."},
+ {t:"Antenatal visits",b:"During pregnancy, the midwife checks your health and the baby's: blood pressure, weight, blood tests, the baby's growth. She gives you iron, folic acid and vaccines.",k:"Go to the health centre as soon as you know you are pregnant, then at every appointment.",h:"you have a danger sign: bleeding, fever, severe pain or headache."},
+ {t:"The 42 days after baby",b:"After birth, your body needs rest. Light bleeding is normal for a few weeks. Eat well and drink plenty of water.",k:"Breastfeed in the first hour and only breastfeed for 6 months.",h:"you bleed heavily, have a fever or bad-smelling discharge."}]
+};
+
+// ---------- Storage (stays on the phone) ----------
+const S = {
+  get(k,d){try{const v=localStorage.getItem("housnia_"+k);return v===null?d:JSON.parse(v)}catch(e){return d}},
+  set(k,v){try{localStorage.setItem("housnia_"+k,JSON.stringify(v))}catch(e){}},
+  clear(){try{Object.keys(localStorage).filter(k=>k.startsWith("housnia_")).forEach(k=>localStorage.removeItem(k))}catch(e){}}
+};
+let lang=S.get("lang",null), profile=S.get("profile",null), tab=S.get("tab","home");
+const t=()=>T[lang||"fr"], g=()=>GUIDES[lang||"fr"];
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const DAY=864e5, today=()=>{const d=new Date();d.setHours(0,0,0,0);return d};
+const parse=s=>{if(!s)return null;const [y,m,d]=s.split("-").map(Number);return new Date(y,m-1,d)};
+const fmt=d=>d.toLocaleDateString(lang==="ar"?"ar":lang==="en"?"en-GB":"fr-FR",{day:"numeric",month:"long",year:"numeric"});
+
+// ---------- Voice ----------
+function speak(text,btn){
+  if(!("speechSynthesis" in window)){alert(t().noVoice);return}
+  const s=window.speechSynthesis;
+  if(s.speaking){s.cancel();btn.lastChild.textContent=" "+t().listen;return}
+  const u=new SpeechSynthesisUtterance(text);
+  const code={fr:"fr",ar:"ar",en:"en"}[lang]; u.lang={fr:"fr-FR",ar:"ar-SA",en:"en-GB"}[lang]; u.rate=.92;
+  const v=s.getVoices().find(v=>v.lang&&v.lang.toLowerCase().startsWith(code)); if(v)u.voice=v;
+  else if(s.getVoices().length){alert(t().noVoice)}
+  u.onend=()=>{btn.lastChild.textContent=" "+t().listen};
+  btn.lastChild.textContent=" "+t().stop; s.speak(u);
+}
+const listenBtn=txt=>`<button class="listen" data-say="${esc(txt)}">${I.spk}<span> ${t().listen}</span></button>`;
+
+// ---------- Screens ----------
+function vLang(){
+  return `<div class="card" style="text-align:center"><img src="icon-512.png" alt="" style="width:120px;border-radius:26px"><h2 style="margin-top:12px">Housnia</h2><span class="offline">✓ Fonctionne sans internet · يعمل بدون إنترنت</span></div>
+  <div class="card"><h3>Choisis ta langue · اختاري لغتك</h3><div class="lang">
+  ${["fr","ar","en"].map(k=>`<button class="btn ${k==="ar"?"plum":k==="en"?"light":""}" data-lang="${k}">${T[k].name}</button>`).join("")}</div></div>`;
+}
+function vProfile(){
+  const x=t();
+  return `<div class="card"><h2>${x.welcome}</h2><p class="muted">${x.tagline}</p><span class="offline">✓ ${x.offline}</span></div>
+  <div class="card"><h3>${x.who}</h3>
+  <button class="btn" data-profile="girl">${x.p_girl}</button>
+  <button class="btn coral" data-profile="period">${x.p_period}</button>
+  <button class="btn plum" data-profile="preg">${x.p_preg}</button>
+  <button class="btn teal" data-profile="baby">${x.p_baby}</button></div>`;
+}
+function vHome(){
+  const x=t();
+  return `<span class="offline">✓ ${x.offline}</span>
+  <div class="card"><h3>${x.msgDay}</h3><p>${x.msgDayTxt}</p>${listenBtn(x.msgDayTxt)}</div>
+  ${summary()}
+  <div class="grid2">
+   <button class="tile" style="background:var(--pink)" data-tab="period">${I.cal}${x.n_period}</button>
+   <button class="tile" style="background:var(--coral)" data-tab="preg">${I.preg}${x.n_preg}</button>
+   <button class="tile" style="background:var(--teal)" data-tab="baby">${I.baby}${x.n_baby}</button>
+   <button class="tile" style="background:var(--plum)" data-tab="learn">${I.book}${x.n_learn}</button>
+  </div>
+  <div class="card" style="margin-top:14px"><p class="muted">🔒 ${x.privacy}</p>
+  <button class="btn light" id="chg">${x.change}</button><button class="btn light" id="rst">${x.reset}</button>
+  <p class="muted" style="margin-top:8px">${x.proto}</p></div>`;
+}
+function summary(){
+  const x=t();
+  if(profile==="preg"){const l=parse(S.get("lmp",""));if(l){const w=Math.floor((today()-l)/DAY/7);if(w>=0&&w<=42)return `<div class="card"><h3>${x.n_preg}</h3><div class="big">${x.week} ${w}</div><p class="muted">${x.of40}</p></div>`}}
+  if(profile==="baby"){const b=parse(S.get("birth",""));if(b){const d=Math.floor((today()-b)/DAY);if(d>=0)return `<div class="card"><h3>${x.n_baby}</h3><div class="big">${x.dayAfter(d)}</div></div>`}}
+  const p=nextPeriod(); if(p) return `<div class="card"><h3>${x.nextPeriod}</h3><div class="big">${fmt(p.date)}</div><p class="muted">${p.label}</p></div>`;
+  return "";
+}
+function nextPeriod(){
+  const l=parse(S.get("last","")),c=Number(S.get("cycle",28))||28; if(!l)return null;
+  const td=today(), diff=Math.round((td-l)/DAY);
+  const n=new Date(l.getTime()+c*Math.max(1,Math.ceil(diff/c))*DAY);
+  const d=Math.round((n-td)/DAY);
+  return {date:n,label:d===0?t().today:d>0?t().inDays(d):t().ago(-d)};
+}
+function vPeriod(){
+  const x=t(), last=S.get("last",""), cyc=S.get("cycle",28);
+  let cal="";
+  const l=parse(last);
+  if(l){
+    const c=Number(cyc)||28, td=today(), start=new Date(td.getFullYear(),td.getMonth(),1), first=(start.getDay()+6)%7, days=new Date(td.getFullYear(),td.getMonth()+1,0).getDate();
+    const heads=(lang==="ar"?["ن","ث","ر","خ","ج","س","ح"]:lang==="en"?["M","T","W","T","F","S","S"]:["L","M","M","J","V","S","D"]).map(h=>`<div class="h">${h}</div>`).join("");
+    let cells=""; for(let i=0;i<first;i++)cells+="<div class='h'></div>";
+    for(let d=1;d<=days;d++){
+      const dt=new Date(td.getFullYear(),td.getMonth(),d), diff=Math.round((dt-l)/DAY), pos=((diff%c)+c)%c;
+      let cls=""; if(diff>=-c*2){ if(pos<5)cls="p"; else if(pos>=c-19&&pos<=c-12)cls="f"; }
+      if(dt.getTime()===td.getTime())cls+=" t";
+      cells+=`<div class="${cls}">${d}</div>`;
+    }
+    const np=nextPeriod();
+    cal=`<div class="card"><h3>${x.nextPeriod}</h3><div class="big">${fmt(np.date)}</div><p class="muted">${np.label}</p>
+    <div class="cal">${heads}${cells}</div>
+    <div class="legend"><span><i style="background:var(--pink)"></i>${x.legP}</span><span><i style="background:#CDEDE7"></i>${x.legF}</span><span><i style="outline:3px solid var(--plum)"></i>${x.legT}</span></div></div>`;
+  } else cal=`<div class="card"><p class="muted">${x.noData}</p></div>`;
+  return `<h2>${x.n_period}</h2>${cal}
+  <div class="card"><label for="last">${x.lastPeriod}</label><input type="date" id="last" value="${esc(last)}" max="${new Date().toISOString().slice(0,10)}">
+  <label for="cycle">${x.cycleLen}</label><select id="cycle">${Array.from({length:15},(_,i)=>21+i).map(n=>`<option ${n==cyc?"selected":""}>${n}</option>`).join("")}</select>
+  <button class="btn" id="savePeriod">${x.save}</button></div>
+  ${guideCard(g()[0])}`;
+}
+function vPreg(){
+  const x=t(), lmp=S.get("lmp",""), l=parse(lmp);
+  let info="";
+  if(l){
+    const w=Math.floor((today()-l)/DAY/7), due=new Date(l.getTime()+280*DAY), tri=w<13?0:w<28?1:2;
+    info=`<div class="card"><div class="big">${x.week} ${Math.max(0,w)}</div><p class="muted">${x.of40}</p>
+    <div style="height:12px;background:#F6EEF2;border-radius:99px;overflow:hidden;margin:8px 0 12px"><div style="height:100%;width:${Math.min(100,Math.max(2,w/40*100))}%;background:var(--coral)"></div></div>
+    <h3>${x.due}</h3><p style="font-size:20px;font-weight:700">${fmt(due)}</p><p>${x.tri[tri]}</p>${listenBtn(x.tri[tri])}</div>`;
+  }
+  return `<h2>${x.n_preg}</h2>${info}
+  <div class="card"><label for="lmp">${x.lmp}</label><input type="date" id="lmp" value="${esc(lmp)}" max="${new Date().toISOString().slice(0,10)}">
+  <button class="btn coral" id="savePreg">${x.save}</button></div>
+  <div class="card"><h3>${x.nextVisit}</h3><p>${x.visitTxt}</p>${listenBtn(x.visitTxt)}</div>`;
+}
+function vBaby(){
+  const x=t(), b=S.get("birth",""), bd=parse(b);
+  let head=""; if(bd){const d=Math.floor((today()-bd)/DAY); if(d>=0) head=`<div class="card"><div class="big">${x.dayAfter(d)}</div></div>`;}
+  return `<h2>${x.n_baby}</h2>${head}
+  <div class="card"><label for="birth">${x.birth}</label><input type="date" id="birth" value="${esc(b)}" max="${new Date().toISOString().slice(0,10)}">
+  <button class="btn teal" id="saveBaby">${x.save}</button></div>
+  <div class="card"><ul style="margin:0;padding-inline-start:20px">${x.babyTips.map(s=>`<li style="margin-bottom:8px">${s}</li>`).join("")}</ul>${listenBtn(x.babyTips.join(". "))}</div>
+  ${guideCard(g()[2])}`;
+}
+function guideCard(gd){
+  const x=t();
+  return `<div class="card"><h3>${gd.t}</h3><p>${gd.b}</p>${listenBtn(gd.t+". "+gd.b+" "+gd.k)}
+  <div class="keep" style="margin:10px 0"><b>${x.keep} :</b> ${gd.k}</div>
+  <div class="alert">${x.goHC} ${gd.h}</div></div>`;
+}
+function vLearn(){
+  const x=t();
+  return `<h2>${x.n_learn}</h2><p class="muted">${x.learnIntro}</p>
+  ${g().map(guideCard).join("")}
+  <div class="card quiz"><h3>${x.quizT}</h3><p>${x.quizQ}</p>
+  ${x.quizA.map((a,i)=>`<button data-q="${i}">${a}</button>`).join("")}<p id="qres" class="muted"></p></div>`;
+}
+function vSos(){
+  const x=t();
+  return `<h2 style="color:var(--red)">${x.sosTitle}</h2>
+  <div class="alert" style="margin-bottom:14px">${x.sosIntro}</div>
+  ${listenBtn(x.sosIntro+" "+x.dangers.join(". "))}
+  <ul class="danger" style="margin-top:12px">${x.dangers.map(d=>`<li><b>!</b>${d}</li>`).join("")}</ul>
+  <div class="card"><p><b>${x.dangersPost}</b></p><p>${x.call}</p></div>`;
+}
+
+// ---------- Render ----------
+function render(){
+  const x=t();
+  document.documentElement.lang=lang||"fr"; document.documentElement.dir=x.dir;
+  $("#langBtn").textContent=(lang||"fr").toUpperCase(); $("#langBtn").classList.toggle("hide",!lang);
+  const ready=lang&&profile;
+  $("#nav").classList.toggle("hide",!ready); $("#sos").classList.toggle("hide",!ready);
+  $("#sos").innerHTML=I.sos+" "+x.sos;
+  if(ready){
+    const tabs=[["home",I.home,x.n_home],["period",I.cal,x.n_period],["preg",I.preg,x.n_preg],["baby",I.baby,x.n_baby],["learn",I.book,x.n_learn]];
+    $("#navIn").innerHTML=tabs.map(([k,ic,l])=>`<button data-tab="${k}" class="${tab===k?"on":""}">${ic}<span>${l}</span></button>`).join("");
+  }
+  const V={home:vHome,period:vPeriod,preg:vPreg,baby:vBaby,learn:vLearn,sos:vSos};
+  $("#view").innerHTML=!lang?vLang():!profile?vProfile():(V[tab]||vHome)();
+  window.scrollTo(0,0);
+}
+document.addEventListener("click",e=>{
+  const b=e.target.closest("button"); if(!b)return;
+  if(b.dataset.lang){lang=b.dataset.lang;S.set("lang",lang);render();return}
+  if(b.dataset.profile){profile=b.dataset.profile;S.set("profile",profile);tab={girl:"learn",period:"period",preg:"preg",baby:"baby"}[profile];S.set("tab",tab);render();return}
+  if(b.dataset.tab){tab=b.dataset.tab;S.set("tab",tab);if("speechSynthesis" in window)speechSynthesis.cancel();render();return}
+  if(b.dataset.say){speak(b.dataset.say,b);return}
+  if(b.id==="sos"){tab="sos";render();return}
+  if(b.id==="langBtn"){const o=["fr","ar","en"];lang=o[(o.indexOf(lang)+1)%3];S.set("lang",lang);render();return}
+  if(b.id==="chg"){profile=null;S.set("profile",null);render();return}
+  if(b.id==="rst"){S.clear();alert(t().resetOk);lang=null;profile=null;tab="home";render();return}
+  if(b.id==="savePeriod"){S.set("last",$("#last").value);S.set("cycle",Number($("#cycle").value));render();return}
+  if(b.id==="savePreg"){S.set("lmp",$("#lmp").value);render();return}
+  if(b.id==="saveBaby"){S.set("birth",$("#birth").value);render();return}
+  if(b.dataset.q!==undefined){
+    const ok=b.dataset.q==="1"; document.querySelectorAll("[data-q]").forEach(x=>x.classList.remove("ok","ko"));
+    b.classList.add(ok?"ok":"ko"); if(!ok)document.querySelector('[data-q="1"]').classList.add("ok");
+    $("#qres").textContent=ok?t().quizOk:t().quizKo;
+    const qs=S.get("quiz",[]);qs.push({ok,at:Date.now()});S.set("quiz",qs);return
+  }
+});
+render();
+if("serviceWorker" in navigator && location.protocol.startsWith("http")){navigator.serviceWorker.register("sw.js").catch(()=>{})}
+</script>
+</body>
+</html>
