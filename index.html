@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Housnia – Offline women's health app for Chad</title>
+<meta name="description" content="Housnia is a free, offline mobile app that helps women and girls in Chad understand their periods, follow their pregnancy and recognise danger signs after childbirth.">
+<link rel="icon" href="app/icon-192.png">
+<style>
+:root{--pink:#E8457A;--powder:#FAD4E0;--plum:#5B1E44;--sand:#FBF4E6;--teal:#4FB5A5;--coral:#F28C6B;--ink:#2B2B2B;--muted:#6B5A63}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.55}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+header{background:var(--plum);color:#fff}
+.hero{display:flex;gap:32px;align-items:center;padding:56px 0}
+.hero img{width:140px;height:140px;border-radius:32px;flex:0 0 auto}
+.hero h1{font-size:44px;margin:0 0 8px}
+.hero p{font-size:19px;margin:0 0 20px;color:var(--powder)}
+.btn{display:inline-block;background:var(--pink);color:#fff;text-decoration:none;font-weight:700;padding:13px 22px;border-radius:12px;margin:4px 8px 4px 0}
+.btn.alt{background:#fff;color:var(--plum)}
+section{padding:44px 0}
+section.tint{background:var(--sand)}
+h2{color:var(--plum);font-size:28px;margin:0 0 18px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.stat{background:#fff;border-radius:16px;padding:20px}
+.stat b{display:block;font-size:40px;color:var(--pink);line-height:1.1}
+.stat small{color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.card{border-radius:16px;padding:20px;background:#FDF2F6}
+.card h3{margin:0 0 6px;color:var(--plum)}
+.founder{display:flex;gap:20px;align-items:flex-start}
+.founder .dot{width:72px;height:72px;border-radius:50%;background:var(--pink);flex:0 0 auto}
+footer{background:var(--plum);color:var(--powder);padding:28px 0;font-size:15px}
+footer a{color:#fff}
+@media(max-width:640px){.hero{flex-direction:column;text-align:center;padding:40px 0}.hero h1{font-size:36px}.founder{flex-direction:column}}
+</style>
+</head>
+<body>
+<header><div class="wrap hero">
+  <img src="app/icon-512.png" alt="Housnia logo">
+  <div>
+    <h1>Housnia</h1>
+    <p>A free, offline mobile app that helps women and girls in Chad understand their periods, follow their pregnancy and recognise danger signs after childbirth.</p>
+    <a class="btn" href="app/">Try the prototype</a>
+    <a class="btn alt" href="https://github.com/HousniaTchad/housnia">Open source code</a>
+  </div>
+</div></header>
+
+<section class="tint"><div class="wrap">
+  <h2>The problem</h2>
+  <div class="stats">
+    <div class="stat"><b>860</b>maternal deaths per 100,000 live births<br><small>WHO Chad, 2022</small></div>
+    <div class="stat"><b>38%</b>of births attended by skilled health personnel<br><small>UNICEF, 2022</small></div>
+    <div class="stat"><b>22%</b>of people aged 15+ can read and write<br><small>CIA World Factbook</small></div>
+  </div>
+  <p style="margin-top:18px">Periods are taboo, early pregnancies are common, danger signs are recognised too late, and mobile internet is rare and expensive. Most health apps need internet and assume users can read.</p>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Our solution</h2>
+  <div class="cards">
+    <div class="card"><h3>Works offline</h3>All content stays on the phone after installation. Updates arrive in small packs when a network is available.</div>
+    <div class="card"><h3>Listen, not only read</h3>Texts in French and Arabic; audio and video also in Chadian Arabic, for women who cannot read.</div>
+    <div class="card"><h3>From first period to after birth</h3>My Periods, My Pregnancy, After Baby, Learn, and an always-visible Emergency button.</div>
+    <div class="card"><h3>Private and validated</h3>No account, data stays on the phone. Content validated by a Chadian medical committee.</div>
+  </div>
+</div></section>
+
+<section class="tint"><div class="wrap">
+  <h2>Founder</h2>
+  <div class="founder"><div class="dot"></div><div>
+    <h3 style="margin:0;color:var(--plum)">Housna Mahamat Ali</h3>
+    <p style="margin:4px 0 0">Founder and project lead. Second-year midwifery student (Obstetric Care), Faculty of Human Health Sciences, University of N'Djamena, Chad.</p>
+  </div></div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Status</h2>
+  <p>Early prototype (October 2026). Next steps: field research with women, girls and midwives in N'Djamena, medical validation of content, and a pilot with 300 users. Health content in the prototype is a draft pending medical validation.</p>
+</div></section>
+
+<footer><div class="wrap">
+  Contact: <a href="mailto:housnia.tchad@gmail.com">housnia.tchad@gmail.com</a> · N'Djamena, Chad · Code: MIT licence · Content: CC BY 4.0
+</div></footer>
+</body>
+</html>
